@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<div class="container spacing-top">
+    <div class="container-fluid d-flex flex-column outline-3">
+        {% if object_list %}
+            {% for i in object_list %}
+                {% if forloop.first %}<div class="row">{% endif %}
+                <div class="col-md-4 text-center">
+                    <img class="avatar-img" src="{{ i.avatar.url }}">
+                    <h2>{{ i.name }}</h2>
+                    <a class="btn btn-primary btn-lg" href="{% url 'journal-detail' i.id %}" role="button">Select</a>
+                </div>
+
+                {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+                {% if forloop.last %}</div>{% endif%}
+            {% endfor %}
+        {% if object_list|length < 3 %}
+            <a class="btn btn-primary btn-lg mt-auto" href="{% url 'create-sheet' %}" role="button">Add another character</a>
+        {% endif %}
+        {% else %}
+        <p class="h3 text-center">It appears that your Journal is empty.</p>
+        <a class="btn btn-primary btn-lg" style="margin-top: 150px" href="{% url 'create-sheet' %}" role="button">Add a character</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
