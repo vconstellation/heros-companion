@@ -15,7 +15,7 @@ prof_choices = [
     ('Sorcerer', 'Sorcerer'),
     ('Warlock', 'Warlock')
 ]
-
+#ModelForm for creating the character sheet in Journal
 class CharSheetCreation(forms.ModelForm):
     prof = forms.ChoiceField(choices=prof_choices, widget=forms.RadioSelect())
     attrs_str = forms.IntegerField(validators=[validate_attrs])
@@ -27,4 +27,9 @@ class CharSheetCreation(forms.ModelForm):
 
     class Meta:
         model = CharSheet
-        exclude = ['author']
+        exclude = ['author', 'description', 'weapon', 'spell', 'damage']
+
+class CharSheetDescriptionForm(forms.ModelForm):
+    class Meta:
+        model = CharSheet
+        fields = ['description', 'weapon', 'spell', 'damage']

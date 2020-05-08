@@ -82,14 +82,34 @@
                 </table>
             </div>
             <div class="col-md-6">
-                <p>Description: </p>
-                <p class="p-font1"> - Insert Description Here [todo] -</p>
-                <div class="text-center">
-                    <div class="btn-group-vertical" role="group">
-                        <button type="button" class="btn btn-lg btn-space">Armory</button>
-                        <button type="button" class="btn btn-lg">Trophies</button>
+                {% if object.description == None and object.weapon == None and object.spell == None %}
+                    <div class="text-center">
+                        <a class="btn" type="button" href="{% url 'sheet-description' object.id %}">Update your description!</a>
                     </div>
-                </div>
+                {% else %}
+                    <p>Description:</p>
+                    <p class="p-font1">{{ object.description }}</p>
+                    <p>Favourite weapon:</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Name:</p>
+                            <p class="p-font1">{{ object.weapon }}</p>
+                        </div>
+                        <div class="col">
+                            <p>Damage:</p>
+                            <p class="p-font1">{{ object.damage }}</p>
+                        </div>
+                    </div>
+                    <p>Favourite Spell:</p>
+                    <p class="p-font1">{{ object.spell }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div clas="navbar navbar-default navbar-fixed-bottom">
+            <div class="text-center">
+                <a class="btn btn-lg btn-space" type="button" href="{% url 'sheet-update' object.id %}">Update</a>
+                <a class="btn btn-lg btn-space" type="button" href="#">Armory</a>
+                <a class="btn btn-lg btn-space" type="button" href="#">Trophies</a>
             </div>
         </div>
     </div>
