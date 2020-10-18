@@ -34,6 +34,10 @@ INSTALLED_APPS = [
     'layout.apps.LayoutConfig',
     'journal.apps.JournalConfig',
     'users.apps.UsersConfig',
+<<<<<<< HEAD
+=======
+    'forum.apps.ForumConfig',
+>>>>>>> origin
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

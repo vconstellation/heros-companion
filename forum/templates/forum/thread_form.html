@@ -1,0 +1,25 @@
+{% extends 'layout/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="containter">
+    <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item"><a href="{% url 'forum' %}">Forum</a></li>
+        <li class="breadcrumb-item active"><a href="{% url 'threads' categories.pk %}">{{ categories.name }}</a></li>
+    </ol>
+    <div class="mx-auto" style="width: 500px;">
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Create a new thread</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-primary\" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

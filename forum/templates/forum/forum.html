@@ -1,0 +1,41 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<div class="container">
+    <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item active">Forum</li>
+    </ol>
+    <table class="table">
+        <thead class="thead-inverse">
+        <tr>
+            <th>Category</th>
+            <th>Posts</th>
+            <th>Threads</th>
+            <th>Last post</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in categories %}
+        <tr>
+            <td>
+                <a href="{% url 'threads' i.pk %}"{{ i.name }}</a>
+                <small class="text-muted d-block">{{ i.description }}</small>
+            </td>
+            <td class="align-middle">{{ i.get_posts_count }}</td>
+            <td class="align-middle">{{ i.threads.count }}</td>
+            <td class="align-middle">
+                {% if i.get_last_post %}
+                    {% with post=i.get_last_post %}
+                        <small>
+                            <a href="{% url 'posts' i.pk post.thread.pk %}">
+                                By {{ post.post_author.username }} at {{ post.created_at }}
+                            </a>
+                        </small>
+                    {% endwith %}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

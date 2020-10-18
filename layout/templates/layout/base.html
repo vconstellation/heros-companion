@@ -30,12 +30,15 @@
         <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
             <li class="nav-item">
+<<<<<<< HEAD
                 <a class="nav-link" href="{% url 'profile' %}">Profile<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
             <li class="nav-item">
+=======
+>>>>>>> origin
                 <a class="nav-link" href="{% url 'layout-journal' %}">Hero's Journal</a>
             </li>
             <li class="nav-item">
@@ -44,6 +47,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Library</a>
             </li>
+<<<<<<< HEAD
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 About
@@ -57,6 +61,16 @@
             </li>
             <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
+=======
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'forum' %}">Forum</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}">Profile<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+>>>>>>> origin
             </li>
             {% else %}
             <li>
