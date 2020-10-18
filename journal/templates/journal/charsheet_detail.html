@@ -1,0 +1,118 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <div class="container container-box px-5">
+        <div class="row">
+            <div class="col-md-6 text-center divider-right">
+                <img src="{{ object.avatar.url }}" alt="avatar" class="img-thumbnail">
+            </div>
+            <div class="col-md-6">
+                <table class="table table-char">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Name: </th>
+                            <td class="p-font1">{{ object.name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Class: </th>
+                            <td class="p-font1">{{ object.prof }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sex: </th>
+                            <td class="p-font1">{{ object.sex }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Race: </th>
+                            <td class="p-font1">{{ object.race }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Alignment: </th>
+                            <td class="p-font1">{{ object.alignment }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Strength</th>
+                    <th scope="col">Dexterity</th>
+                    <th scope="col">Constitution</th>
+                    <th scope="col">Intelligence</th>
+                    <th scope="col">Wisdom</th>
+                    <th scope="col">Charisma</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ object.attrs_str }}</td>
+                    <td>{{ object.attrs_dex }}</td>
+                    <td>{{ object.attrs_con }}</td>
+                    <td>{{ object.attrs_int }}</td>
+                    <td>{{ object.attrs_wis }}</td>
+                    <td>{{ object.attrs_cha }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="font-weight-bold">Background: </p>
+                <p class="p-font1">{{ object.background }}</p>
+                <p class="font-weight-bold">Bonds: </p>
+                <p class="p-font1">{{ object.bonds }}</p>
+                <p class="font-weight-bold">Ideals: </p>
+                <p class="p-font1">{{ object.ideals }}</p>
+                <p class="font-weight-bold">Flaws: </p>
+                <p class="p-font1">{{ object.flaws }}</p>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Health Points:</th>
+                            <td class="p-font1">10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Level:</th>
+                            <td class="p-font1">1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Experience:</th>
+                            <td class="p-font1">180</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                {% if object.description == None and object.weapon == None and object.spell == None %}
+                    <div class="text-center">
+                        <a class="btn" type="button" href="{% url 'sheet-description' object.id %}">Update your description!</a>
+                    </div>
+                {% else %}
+                    <p>Description:</p>
+                    <p class="p-font1">{{ object.description }}</p>
+                    <p>Favourite weapon:</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Name:</p>
+                            <p class="p-font1">{{ object.weapon }}</p>
+                        </div>
+                        <div class="col">
+                            <p>Damage:</p>
+                            <p class="p-font1">{{ object.damage }}</p>
+                        </div>
+                    </div>
+                    <p>Favourite Spell:</p>
+                    <p class="p-font1">{{ object.spell }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div clas="navbar navbar-default navbar-fixed-bottom">
+            <div class="text-center">
+                <a class="btn btn-lg btn-space" type="button" href="{% url 'sheet-update' object.id %}">Update</a>
+                <a class="btn btn-lg btn-space" type="button" href="#">Armory</a>
+                <a class="btn btn-lg btn-space" type="button" href="#">Trophies</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

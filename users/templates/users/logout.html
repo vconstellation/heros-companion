@@ -1,0 +1,10 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <h2>You have been logged out of the realm. </h2>
+    <div class="content-section">
+            <small class="text-muted">
+                Require another log in?<a class="ml-2" href="{% url 'login' %}">Proceed.</a>
+            </small>
+        </div>
+    </div>
+{% endblock %}

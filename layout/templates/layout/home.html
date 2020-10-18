@@ -1,0 +1,51 @@
+{% extends "layout/base.html" %}
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Ultimate Role-Playing Games Companion App</h1>
+            <p>
+                No matter whether you're a Player looking for a tool to help you archive your Hero's journey,
+                <br/>
+                or a Game Master in search of an ultimate DM-ing engine.
+            </p>
+            <br />
+            <p>
+                <a class="btn btn-primary btn-lg" href="{% url 'layout-journal' %}" role="button">Hero's Journal</a>
+                <a class="btn btn-primary btn-lg" href="#" role="button">DM's Screen</a>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Library</a>
+            </p>
+
+        </div>
+    </div>
+    <div class="container px-5">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <h3>For the Players</h3>
+                <p class="text-justify">
+                    Using the Hero's Journal You'll be able to create your Role-Playing Game Character from the scratch,
+                    save their achievements, relationships, defeated beasts and much, much more. Journal all of your
+                    champion's exploits and weave an epic tale in the fantasy setting of your favourite game.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                <h3>For the Game Masters</h3>
+                <p class="text-justify">
+                    Make use of the multi-functional Game Master's Screen. Create intricate maps of relationships,
+                    generate sophisticated dungeons with dreadful enemies and oppulent loot. Keep all of your notes in one,
+                    easily accesible place.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                <h3>For the RPG enthusiasts</h3>
+                <p class="text-justify">
+                    Share your epic tales, beloved heroes and your favourite campaigns here in The Library.
+                    One digital binder to record countless hours of role-playing fun. Inspire other Players and DMs
+                    and celebrate your Character's deeds with the Community.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

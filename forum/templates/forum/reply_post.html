@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+     <div class="container">
+        <div class="breadcrumb my-4">
+            <li class="breadcrumb-item"><a href="{% url 'forum' %}">Forum</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'threads' threads.category.pk %}">Test</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'posts' threads.category.pk threads.pk %}">Test</a></li>
+        </div>
+        <div class="mx-auto" style="width: 500px;">
+            <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">~Reply to a post</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-primary\" type="submit">Reply</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
